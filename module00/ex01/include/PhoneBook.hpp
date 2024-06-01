@@ -2,17 +2,20 @@
 #define PHONE_BOOK_HPP
 
 #include "Contact.hpp"
+#include "PhoneBookHelper.hpp"
+#include <iostream>
+
+#define MAX_CONTACTS 8
 
 class PhoneBook {
 private:
-	static const int	MAX_CONTACTS = 8;
-	Contact				contacts[MAX_CONTACTS];
-	int					contact_count;
+	Contact	contacts[MAX_CONTACTS];
+	int		contactCount;
 
 public:
 	PhoneBook(void);
-	void	add_contact(void);
-	void	search_contact(void);
+	void	addContact(void);
+	void	searchContact(void);
 };
 
 #endif

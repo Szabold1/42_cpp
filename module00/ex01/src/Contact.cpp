@@ -1,45 +1,58 @@
-#include "../include/Contact.hpp"
+#include "Contact.hpp"
 
-using std::string;
-
-// Setter methods
-void	Contact::set_first_name(string str) {
-	this->first_name = str;
+/* ----------------------------------------------------------- Setter methods */
+/* ---------------------------------------------------------------------------*/
+void	Contact::setField(int i, std::string str) {
+	if (i == 0)
+		setFirstName(str);
+	else if (i == 1)
+		setLastName(str);
+	else if (i == 2)
+		setNickname(str);
+	else if (i == 3)
+		setPhoneNumber(str);
+	else if (i == 4)
+		setDarkestSecret(str);
 }
 
-void	Contact::set_last_name(string str) {
-	this->last_name = str;
+void	Contact::setFirstName(std::string str) {
+	firstName = str;
 }
 
-void	Contact::set_nickname(string str) {
-	this->nickname = str;
+void	Contact::setLastName(std::string str) {
+	lastName = str;
 }
 
-void	Contact::set_phone_number(string str) {
-	this->phone_number = str;
+void	Contact::setNickname(std::string str) {
+	nickname = str;
 }
 
-void	Contact::set_darkest_secret(string str) {
-	this->darkest_secret = str;
+void	Contact::setPhoneNumber(std::string str) {
+	phoneNumber = str;
 }
 
-// Getter methods
-string	Contact::get_first_name(void) {
-	return (this->first_name);
+void	Contact::setDarkestSecret(std::string str) {
+	darkestSecret = str;
 }
 
-string	Contact::get_last_name(void) {
-	return (this->last_name);
+/* ----------------------------------------------------------- Getter methods */
+/* ---------------------------------------------------------------------------*/
+std::string	Contact::getFirstName(void) {
+	return (firstName);
 }
 
-string	Contact::get_nickname(void) {
-	return (this->nickname);
+std::string	Contact::getLastName(void) {
+	return (lastName);
 }
 
-string	Contact::get_phone_number(void) {
-	return (this->phone_number);
+std::string	Contact::getNickname(void) {
+	return (nickname);
 }
 
-string	Contact::get_darkest_secret(void) {
-	return (this->darkest_secret);
+std::string	Contact::getPhoneNumber(void) {
+	return (phoneNumber);
+}
+
+std::string	Contact::getDarkestSecret(void) {
+	return (darkestSecret);
 }

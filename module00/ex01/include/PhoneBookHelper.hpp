@@ -2,10 +2,16 @@
 #define PHONE_BOOK_HELPER_HPP
 
 #include "Contact.hpp" // Contact
+#include <iostream> // cout, cin, endl
+#include <string> // string
+#include <sstream> // stringstream
+#include <iomanip> // setw
 
-// helper functions for PhoneBook
-void	display_contacts_list(Contact contacts[], int contact_count);
-int		handle_input(int contact_count);
-void	display_contact(Contact contacts[], int index);
+/* ---------------------------------------------------- helpers for PhoneBook */
+/* -------------------------------------------------------------------------- */
+bool	checkInput(int i, std::string input);
+void	displayContacts(Contact contacts[], int contactCount);
+int		handleIndexInput(int contactCount);
+void	displayContact(int index, Contact contacts[]);
 
 #endif

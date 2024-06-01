@@ -1,58 +1,110 @@
-#include "../include/Contact.hpp" // Contact
-#include <string> // string
-#include <iostream> // cout, endl, cin, right
-#include <iomanip> // setw
-#include <sstream> // stringstream
+#include "PhoneBookHelper.hpp"
 
-using std::string;
-using std::cout;
-using std::endl;
-using std::cin;
-using std::right;
-using std::setw;
-using std::stringstream;
+/* -------------------------------------- helpers for PhoneBook::addContact() */
+/* -------------------------------------------------------------------------- */
+// check if the given string contains only alphabetic characters
+// return true if it does, false otherwise
+static bool	isStrAlpha(std::string str) {
+	int	str_len = str.length();
+
+	for (int i = 0; i < str_len; i++) {
+		if (!isalpha(str[i]))
+			return false;
+	}
+	return true;
+}
+
+// check if the given string contains only digit characters
+// return true if it does, false otherwise
+static bool	isStrDigit(std::string str) {
+	int	str_len = str.length();
+
+	for (int i = 0; i < str_len; i++) {
+		if (!isdigit(str[i]))
+			return false;
+	}
+	return true;
+}
+
+// check if the input is valid
+// return true if it is, false otherwise
+bool	checkInput(int i, std::string input) {
+	if (i == 0 || i == 1 || i == 2) {
+		if (input.empty() || !isStrAlpha(input))
+			return false;
+	}
+	else if (i == 3) {
+		if (input.empty() || !isStrDigit(input))
+			return false;
+	}
+	else if (i == 4) {
+		if (input.empty())
+			return false;
+	}
+	return true;
+}
+
+/* ----------------------------------- helpers for PhoneBook::searchContact() */
+/* -------------------------------------------------------------------------- */
 
 // truncate a string to 10 characters
-static string	trunc_str(string str) {
-    if (str.length() > 10)
-        return str.substr(0, 9) + ".";
-    return str;
+static std::string	truncStr(std::string str) {
+	if (str.length() > 10)
+		return str.substr(0, 9) + ".";
+	return str;
 }
 
 // display the list of contacts in the phone book
-void	display_contacts_list(Contact contacts[], int contact_count)
-{
-    cout << "\n     index|first name| last name|  nickname" << endl;
-    cout << string(4 * 10 + 5, '-') << endl;
-    for (int i = 0; i < contact_count; i++) {
-        cout << right << setw(10) << i << "|";
-        cout << right << setw(10) << trunc_str(contacts[i].get_first_name()) << "|";
-        cout << right << setw(10) << trunc_str(contacts[i].get_last_name()) << "|";
-        cout << right << setw(10) << trunc_str(contacts[i].get_nickname()) << endl;
-    }
+void	displayContacts(Contact contacts[], int contactCount) {
+	int	nbContacts = contactCount;
+	if (nbContacts > 8)
+		nbContacts = 8;
+	const int	colWidth = 10;
+
+	std::cout << std::endl << "     index|first name| last name|  nickname" << std::endl;
+	std::cout << std::string(4 * colWidth + 5, '-') << std::endl;
+	for (int i = 0; i < nbContacts; i++) {
+		std::cout << std::setw(colWidth) << std::right << i << "|";
+		std::cout << std::setw(colWidth) << std::right << truncStr(contacts[i].getFirstName()) << "|";
+		std::cout << std::setw(colWidth) << std::right << truncStr(contacts[i].getLastName()) << "|";
+		std::cout << std::setw(colWidth) << std::right << truncStr(contacts[i].getNickname()) << std::endl;
+	}
+	std::cout << std::endl;
 }
 
-// handle user input for selecting a contact and return the index
-int	handle_input(int contact_count) {
-    int		index;
-    string	input;
+// prompt the user to enter the index of the contact to display
+// return the index entered by the user
+int	handleIndexInput(int contactCount) {
+	std::string	input;
+	int	nbContacts = contactCount;
+	if (nbContacts > 8)
+		nbContacts = 8;
 
-    while (1) {
-        cout << "\nEnter the index of the contact you want to display:\n";
-        getline(cin, input);
-        stringstream ss(input);
-        if (ss >> index && index >= 0 && index < contact_count)
-            break;
-        cout << "Invalid index. Please try again." << endl;
-    }
-    return index;
+	while (1) {
+		std::cout << "Enter the index of the contact you want to display:" << std::endl;
+		std::getline(std::cin, input);
+		if (input.empty() || !isStrDigit(input)) {
+			std::cout << "Invalid input. Please try again." << std::endl;
+			continue ;
+		}
+		// extract the index from the input string into an integer
+		std::stringstream	ss(input);
+		int	index = -1;
+		ss >> index;
+		// check if the extraction was successful and if the index is valid
+		if (ss.fail() || index < 0 || index >= nbContacts) {
+			std::cout << "Invalid index. Please try again." << std::endl;
+			continue ;
+		}
+		return index;
+	}
 }
 
-// display a contact from the phone book
-void	display_contact(Contact contacts[], int index) {
-    cout << "\nFirst name: " << contacts[index].get_first_name() << endl;
-    cout << "Last name: " << contacts[index].get_last_name() << endl;
-    cout << "Nickname: " << contacts[index].get_nickname() << endl;
-    cout << "Phone number: " << contacts[index].get_phone_number() << endl;
-    cout << "Darkest secret: " << contacts[index].get_darkest_secret() << endl;
+// display the contact at the given index
+void	displayContact(int index, Contact contacts[]) {
+	std::cout << "First name: " << contacts[index].getFirstName() << std::endl;
+	std::cout << "Last name: " << contacts[index].getLastName() << std::endl;
+	std::cout << "Nickname: " << contacts[index].getNickname() << std::endl;
+	std::cout << "Phone number: " << contacts[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret: " << contacts[index].getDarkestSecret() << std::endl;
 }

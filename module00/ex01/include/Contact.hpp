@@ -3,28 +3,27 @@
 
 #include <string> // string
 
-using std::string;
-
 class Contact {
 private:
-	string	first_name;
-	string	last_name;
-	string	nickname;
-	string	phone_number;
-	string	darkest_secret;
+	std::string	firstName;
+	std::string	lastName;
+	std::string	nickname;
+	std::string	phoneNumber;
+	std::string	darkestSecret;
 
 public:
-	void	set_first_name(string str);
-	void	set_last_name(string str);
-	void	set_nickname(string str);
-	void	set_phone_number(string str);
-	void	set_darkest_secret(string str);
+	void	setField(int i, std::string str);
+	void	setFirstName(std::string str);
+	void	setLastName(std::string str);
+	void	setNickname(std::string str);
+	void	setPhoneNumber(std::string str);
+	void	setDarkestSecret(std::string str);
 
-	string	get_first_name(void);
-	string	get_last_name(void);
-	string	get_nickname(void);
-	string	get_phone_number(void);
-	string	get_darkest_secret(void);
+	std::string	getFirstName(void);
+	std::string	getLastName(void);
+	std::string	getNickname(void);
+	std::string	getPhoneNumber(void);
+	std::string	getDarkestSecret(void);
 };
 
 #endif

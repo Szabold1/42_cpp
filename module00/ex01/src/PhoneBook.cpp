@@ -1,70 +1,35 @@
-#include "../include/PhoneBookHelper.hpp"
-#include "../include/PhoneBook.hpp" // PhoneBook
-#include <iostream> // cout, endl, cin, right
-#include <string> // string, getline
-
-using std::cout;
-using std::endl;
-using std::cin;
-using std::right;
-using std::string;
-using std::getline;
+# include "PhoneBook.hpp"
 
 // default constructor
-PhoneBook::PhoneBook(void) {
-    contact_count = 0;
+PhoneBook::PhoneBook(void) : contactCount(0) {
 }
 
 // add a new contact to the phone book
-void	PhoneBook::add_contact(void) {
-    if (contact_count < MAX_CONTACTS) {
-        Contact	new_contact;
-        string	input;
-        string	fields[] = {"First name", "Last name", "Nickname", "Phone number", "Darkest secret"};
+void	PhoneBook::addContact(void) {
+	std::string	input;
+	std::string	fields[5] = {"first name", "last name", "nickname", "phone number", "darkest secret"};
 
-        for (int i = 0; i < 5; i++) {
-            cout << fields[i] << ":\n";
-            getline(cin, input);
-            if (!input.empty()) {
-                switch (i)
-                {
-                    case 0:
-                        new_contact.set_first_name(input);
-                        break;
-                    case 1:
-                        new_contact.set_last_name(input);
-                        break;
-                    case 2:
-                        new_contact.set_nickname(input);
-                        break;
-                    case 3:
-                        new_contact.set_phone_number(input);
-                        break;
-                    case 4:
-                        new_contact.set_darkest_secret(input);
-                        break;
-                }
-            }
-            else {
-                cout << "Invalid input. Please try again." << endl;
-                i--;
-            }
-        }
-        contacts[contact_count] = new_contact;
-        contact_count++;
-        cout << "Contact successfully added. ✅" << endl;
-    } else
-        cout << "The phone book is full." << endl;
+	// get the contact's information one by one
+	for (int i = 0; i < 5; i++) {
+		std::cout << "Enter the " << fields[i] << " of the contact:" << std::endl;
+		std::getline(std::cin, input);
+		if (checkInput(i, input) == false) {
+			std::cout << "Invalid input. Please try again." << std::endl;
+			i--;
+		}
+		else
+			contacts[contactCount % MAX_CONTACTS].setField(i, input);
+	}
+	contactCount++;
 }
 
 // search for a contact in the phone book and display it
-void	PhoneBook::search_contact(void) {
-    if (contact_count == 0) {
-        cout << "The phone book is empty." << endl;
-        return;
-    } else {
-        display_contacts_list(contacts, contact_count);
-        int	index = handle_input(contact_count);
-        display_contact(contacts, index);
-    }
+void	PhoneBook::searchContact(void) {
+	if (contactCount == 0) {
+		std::cout << "The phone book is empty." << std::endl;
+		return ;
+	}
+	displayContacts(contacts, contactCount);
+	int	index = handleIndexInput(contactCount);
+	displayContact(index, contacts);
 }

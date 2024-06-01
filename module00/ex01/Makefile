@@ -1,16 +1,18 @@
 # Makefile for C++ module 00 ex01
 
 # Compiler and Flags
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -I $(INC_DIR)
 
 # Target Binary
-NAME = awesome_phone_book
+NAME = awesomePhoneBook
 
 # File and Directory Management
 rm = rm -f
 
-# Source Directories
+# Directories
+INC_DIR = ./include
 SRC_DIR = ./src
 
 # Source Files
@@ -24,12 +26,12 @@ OBJ = $(SRC:%.cpp=$(SRC_DIR)/%.o)
 
 # Compilation Rules
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 
 # Target Rules
 $(NAME): $(OBJ)
 	@echo "🔨 compiling $(NAME)"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 	@echo "✅ $(NAME) compiled"
 
 # Phony Targets
