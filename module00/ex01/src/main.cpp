@@ -1,4 +1,16 @@
-#include "awesomePhoneBook.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/03 11:31:28 by bszabo            #+#    #+#             */
+/*   Updated: 2024/06/03 11:31:35 by bszabo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "main.hpp"
 
 // print welcome message and choices to the user
 static void	display_choices(void) {
