@@ -1,4 +1,4 @@
-# Makefile for C++ module 01 ex00
+# Makefile for C++ module 01 ex01
 
 # Compiler and Flags
 CXX = c++
