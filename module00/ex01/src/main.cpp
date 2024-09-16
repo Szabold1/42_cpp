@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:31:28 by bszabo            #+#    #+#             */
-/*   Updated: 2024/06/03 11:31:35 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/16 09:18:26 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ static void	handle_input(PhoneBook &phone_book) {
 		std::cout << std::endl;
 		std::cout << "----------------------------------------------------" << std::endl;
 		std::cout << "Enter your choice (ADD, SEARCH, EXIT):" << std::endl;
-		std::getline(std::cin, input);
+		if (!std::getline(std::cin, input)) {
+			std::cout << "Input ended or failed. Exiting..." << std::endl;
+			break;
+		}
 		if (input == "ADD")
 			phone_book.addContact();
 		else if (input == "SEARCH")

@@ -18,8 +18,7 @@ SRC_DIR = ./src
 # Source Files
 SRC = Contact.cpp \
 		main.cpp \
-		PhoneBook.cpp \
-		PhoneBookHelper.cpp
+		PhoneBook.cpp
 
 # Object Files
 OBJ = $(SRC:%.cpp=$(SRC_DIR)/%.o)
