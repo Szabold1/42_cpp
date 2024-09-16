@@ -2,7 +2,7 @@
 
 # Compiler and Flags
 CXX = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Target Binary
 NAME = megaphone
