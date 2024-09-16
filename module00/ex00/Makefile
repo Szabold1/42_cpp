@@ -1,7 +1,7 @@
 # Makefile for C++ module 00 ex00
 
 # Compiler and Flags
-CC = c++
+CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Target Binary
@@ -18,12 +18,12 @@ OBJ = $(SRC:%.cpp=%.o)
 
 # Compilation Rules
 %.o: %.cpp
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Target Rules
 $(NAME): $(OBJ)
 	@echo "🔨 compiling $(NAME)"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
 	@echo "✅ $(NAME) compiled"
 
 # Phony Targets

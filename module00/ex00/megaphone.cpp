@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:20:27 by bszabo            #+#    #+#             */
-/*   Updated: 2024/06/03 11:30:08 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/16 09:09:32 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include <cctype> // toupper
 
 // convert string 'str' to upper case and return it
+// doesn't handle special characters like 'ß' or 'ä'
 std::string	str_toupper(std::string str) {
 	int len = str.length();
 
 	for (int i = 0; i < len; i++)
-		str[i] = toupper(str[i]);
+		str[i] = std::toupper(str[i]);
 	return (str);
 }
 
