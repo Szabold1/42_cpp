@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:04:02 by bszabo            #+#    #+#             */
-/*   Updated: 2024/06/04 15:50:17 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/24 09:42:36 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	main(void) {
 	std::string	str = "HI THIS IS BRAIN";
 
 	// pointer to a string
-	std::string	*stringPTR = &str;
+	std::string* stringPTR = &str;
 
 	// reference to a string
-	std::string	&stringREF = str;
+	std::string& stringREF = str;
 
 	std::cout << "Address of the string:\t\t\t\t" << &str << std::endl;
 	std::cout << "Address of the string using the pointer:\t" << stringPTR << std::endl;
