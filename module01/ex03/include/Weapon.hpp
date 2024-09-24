@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:00:55 by bszabo            #+#    #+#             */
-/*   Updated: 2024/06/06 11:36:09 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/24 10:43:50 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ private:
 
 public:
 	Weapon(std::string type);
-	const std::string &getType(void);
-	void setType(std::string type);
+	const std::string& getType(void) const;
+	void setType(const std::string& newType);
 };
 
 #endif

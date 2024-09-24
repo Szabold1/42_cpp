@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:13:48 by bszabo            #+#    #+#             */
-/*   Updated: 2024/06/06 12:04:06 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/24 10:56:01 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 class HumanB {
 private:
 	std::string name;
-	Weapon *weapon;
+	Weapon* weapon; // pointer because it can be NULL
 
 public:
 	HumanB(std::string name);
-	void setWeapon(Weapon &weapon);
-	void attack(void);
+	void setWeapon(Weapon& weapon);
+	void attack(void) const;
 };
 
 #endif

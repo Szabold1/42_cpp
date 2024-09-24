@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:09:13 by bszabo            #+#    #+#             */
-/*   Updated: 2024/06/06 12:13:44 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/24 10:56:16 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 class HumanA {
 private:
 	std::string name;
-	Weapon &weapon;
+	Weapon& weapon; // reference because it can't be NULL
 
 public:
 	HumanA(std::string name, Weapon &weapon);
-	void attack(void);
+	void attack(void) const;
 };
 
 #endif
