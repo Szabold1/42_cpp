@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:20:08 by bszabo            #+#    #+#             */
-/*   Updated: 2024/06/04 14:03:03 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/24 09:32:31 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string> // std::string
 #include <iostream> // std::cout, std::endl
+#include <new>
 
 class Zombie {
 private:
