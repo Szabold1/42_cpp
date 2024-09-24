@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:38:48 by bszabo            #+#    #+#             */
-/*   Updated: 2024/09/16 09:24:40 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/23 19:48:03 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 #include "Contact.hpp"
 #include <iostream>
-#include <string> // string
-#include <sstream> // stringstream
-#include <iomanip> // setw
+#include <string>
+#include <iomanip>
 
 #define MAX_CONTACTS 8
 

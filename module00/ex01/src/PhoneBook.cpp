@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:31:56 by bszabo            #+#    #+#             */
-/*   Updated: 2024/09/16 09:38:34 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/23 19:47:19 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	PhoneBook::addContact(void) {
 		std::cout << "Enter the " << fields[i] << " of the contact:" << std::endl;
 		if (!std::getline(std::cin, input)) {
 			std::cout << "Input ended or failed. Exiting..." << std::endl;
-			return;
+			exit(1);
 		}
 		if (checkInput(i, input) == false) {
 			std::cout << "Invalid input. Please try again." << std::endl;
@@ -130,7 +130,7 @@ int PhoneBook::handleIndexInput(int contactCount) {
 		std::cout << "Enter the index of the contact you want to display:" << std::endl;
 		if (!std::getline(std::cin, input)) {
 			std::cout << "Input ended or failed. Exiting..." << std::endl;
-			break;
+			exit(1);
 		}
 		if (input.empty() || !isStrDigit(input)) {
 			std::cout << "Invalid input. Please try again." << std::endl;

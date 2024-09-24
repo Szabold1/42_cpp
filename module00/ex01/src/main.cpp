@@ -6,11 +6,13 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:31:28 by bszabo            #+#    #+#             */
-/*   Updated: 2024/09/16 09:18:26 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/23 19:44:48 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "PhoneBook.hpp"
+#include <iostream>
+#include <string>
 
 // print welcome message and choices to the user
 static void	display_choices(void) {
@@ -35,7 +37,7 @@ static void	handle_input(PhoneBook &phone_book) {
 		std::cout << "Enter your choice (ADD, SEARCH, EXIT):" << std::endl;
 		if (!std::getline(std::cin, input)) {
 			std::cout << "Input ended or failed. Exiting..." << std::endl;
-			break;
+			exit(1);
 		}
 		if (input == "ADD")
 			phone_book.addContact();

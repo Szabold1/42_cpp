@@ -6,14 +6,15 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:38:42 by bszabo            #+#    #+#             */
-/*   Updated: 2024/06/03 11:38:42 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/09/23 19:48:53 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-#include <string> // string
+#include <string>
+#include <cstdlib>
 
 class Contact {
 private:
