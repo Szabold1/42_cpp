@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:26:38 by bszabo            #+#    #+#             */
-/*   Updated: 2024/09/06 14:21:07 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/22 12:16:28 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::Fixed(const int value) {
 // constructor with float parameter
 Fixed::Fixed(const float value) {
     std::cout << "Float constructor called" << std::endl;
-    this->fixedPointValue = roundf(value * (1 << Fixed::fractionalBits)); // 4.2 * 256 = 1075.2 -> 1075
+    this->fixedPointValue = static_cast<int>(roundf(value * (1 << Fixed::fractionalBits))); // 4.2 * 256 = 1075.2 -> 1075
 }
 
 /* ---------------------------------------------------------------------------*/
@@ -75,12 +75,13 @@ void Fixed::setRawBits(int const raw) {
     this->fixedPointValue = raw;
 }
 
+/* -------------------------------------------------------------- Conversions */
 /* ---------------------------------------------------------------------------*/
-
 float Fixed::toFloat(void) const {
-    return (float)this->fixedPointValue / (float)(1 << Fixed::fractionalBits); // 1075 / 256 = 4.19921875
+    return static_cast<float>(this->fixedPointValue) 
+            / static_cast<float>(1 << Fixed::fractionalBits); // 1075 / (1 * 256) = 4.19921875
 }
 
 int Fixed::toInt(void) const {
-    return this->fixedPointValue >> Fixed::fractionalBits; // 1024 >> 8 = 4
+    return this->fixedPointValue >> Fixed::fractionalBits; // 1024 >> 8 (1024 / 256) = 4
 }
