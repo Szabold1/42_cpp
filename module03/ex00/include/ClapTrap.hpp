@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:20:49 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/24 11:02:37 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/25 13:04:36 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ public:
     void setHitPoints(int newHitPoints);
     void setEnergyPoints(int newEnergyPoints);
     void setAttackDamage(int newAttackDamage);
+
+    // helper functions
+    void printColoredMessage(std::string message, std::string color);
 };
 
 #endif
