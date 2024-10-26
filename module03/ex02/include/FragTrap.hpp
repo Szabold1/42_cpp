@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:51:02 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/25 16:52:48 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/26 12:51:12 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class FragTrap: public ClapTrap {
         FragTrap(void); // private default constructor so an instance can't be created without name
 
     public:
-        FragTrap(std::string name);
+        FragTrap(const std::string& name);
 
         FragTrap(const FragTrap& src); // copy constructor
         FragTrap& operator=(const FragTrap& rhs); // copy assignment operator overload

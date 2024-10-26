@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:20:49 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/25 12:29:17 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/26 12:51:03 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
     ClapTrap(void); // private default constructor so an instance can't be created without name
     
 public:
-    ClapTrap(std::string name);
+    ClapTrap(const std::string& name);
 
     ClapTrap(const ClapTrap& src); // copy constructor
     ClapTrap& operator=(const ClapTrap& rhs); // copy assignment operator overload

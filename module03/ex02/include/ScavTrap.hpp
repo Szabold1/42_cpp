@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:47:40 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/25 12:29:48 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/26 12:51:19 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ScavTrap: public ClapTrap {
         ScavTrap(void); // private default constructor so an instance can't be created without name
 
     public:
-        ScavTrap(std::string name);
+        ScavTrap(const std::string& name);
 
         ScavTrap(const ScavTrap& src); // copy constructor
         ScavTrap& operator=(const ScavTrap& rhs); // copy assignment operator overload

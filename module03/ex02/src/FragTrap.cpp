@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:53:33 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/25 16:56:23 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/26 12:51:37 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /* -------------------------------------------------------------------------- */
 
 // default constructor
-FragTrap::FragTrap(std::string name) : ClapTrap(name) {
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
     printColoredMessage("FragTrap default constructor called", "\033[36;85m");
     setHitPoints(100);
     setEnergyPoints(100);

@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:07:34 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/25 12:47:16 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/26 12:50:43 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /* -------------------------------------------------------------------------- */
 
 // default constructor
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     printColoredMessage("ScavTrap default constructor called", "\033[33;85m");
     setHitPoints(100);
     setEnergyPoints(50);
