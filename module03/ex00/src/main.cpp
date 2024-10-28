@@ -6,43 +6,50 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:47:38 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/25 13:05:55 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/26 13:14:36 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-// 'A' attacks 'B'
-static void attack(ClapTrap& A, ClapTrap& B) {
-    if (B.getHitPoints() <= 5)
-        B.beRepaired(50);
+int main() {
+    // Create ClapTrap instances
+    ClapTrap clap1("ClapOne");
+    ClapTrap clap2("ClapTwo");
 
-    A.attack(B.getName());
-    B.takeDamage(A.getAttackDamage());
+    std::cout << "\n--- Initial Status ---\n";
+    std::cout << "ClapOne HP: " << clap1.getHitPoints() << ", Energy: " << clap1.getEnergyPoints() << "\n";
+    std::cout << "ClapTwo HP: " << clap2.getHitPoints() << ", Energy: " << clap2.getEnergyPoints() << "\n\n";
 
-    std::cout << std::endl;
-}
+    // Test attack
+    std::cout << "--- ClapOne Attacks ClapTwo ---\n";
+    clap1.setAttackDamage(3); // Set some attack damage for testing
+    clap1.attack("ClapTwo");
+    clap2.takeDamage(clap1.getAttackDamage());
 
-static void showEnergyPoints(ClapTrap& A, ClapTrap& B) {
-    std::cout << "----------" << std::endl;
-    std::cout << "Energy points left" << std::endl;
-    std::cout << A.getName() << " has " << A.getEnergyPoints() << std::endl;
-    std::cout << B.getName() << " has " << B.getEnergyPoints() << std::endl;
-    std::cout << "----------" << std::endl;
-}
+    std::cout << "\n--- After Attack Status ---\n";
+    std::cout << "ClapOne HP: " << clap1.getHitPoints() << ", Energy: " << clap1.getEnergyPoints() << "\n";
+    std::cout << "ClapTwo HP: " << clap2.getHitPoints() << ", Energy: " << clap2.getEnergyPoints() << "\n\n";
 
-int main(void) {
-    ClapTrap A("A");
-    ClapTrap B("B");
+    // Test repair
+    std::cout << "--- ClapTwo Repairs Itself ---\n";
+    clap2.beRepaired(20);
 
-    showEnergyPoints(A, B);
+    std::cout << "\n--- After Repair Status ---\n";
+    std::cout << "ClapTwo HP: " << clap2.getHitPoints() << ", Energy: " << clap2.getEnergyPoints() << "\n\n";
 
-    A.setAttackDamage(6);
-
-    for (int i = 0; i < 5; i++) {
-        std::cout << "Attack #" << i + 1 << std::endl;
-        attack(A, B);
+    // Test out of energy scenario
+    std::cout << "--- Exhausting ClapOne's Energy ---\n";
+    while (clap1.getEnergyPoints() > 0) {
+        clap1.attack("ClapTwo");
+        clap2.takeDamage(clap1.getAttackDamage());
     }
+    // Final attempt when energy is depleted
+    clap1.attack("ClapTwo");
 
-    showEnergyPoints(A, B);
+    std::cout << "\n--- Final Status ---\n";
+    std::cout << "ClapOne HP: " << clap1.getHitPoints() << ", Energy: " << clap1.getEnergyPoints() << "\n";
+    std::cout << "ClapTwo HP: " << clap2.getHitPoints() << ", Energy: " << clap2.getEnergyPoints() << "\n";
+
+    return 0;
 }
