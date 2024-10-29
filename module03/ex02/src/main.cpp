@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:47:38 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/25 17:16:31 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/10/26 13:19:51 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,41 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-// 'A' attacks 'B'
-static void attack(ScavTrap& A, FragTrap& B) {
-    if (B.getHitPoints() < 80)
-        B.beRepaired(50);
-
-    A.attack(B.getName());
-    B.takeDamage(A.getAttackDamage());
-
-    std::cout << std::endl;
-}
-
-static void showInfo(ClapTrap& A, ClapTrap& B, ClapTrap& C) {
-    std::cout << "----------" << std::endl;
-    std::cout << "Energy points left" << std::endl;
-    std::cout << A.getName() << " has " << A.getEnergyPoints() << std::endl;
-    std::cout << B.getName() << " has " << B.getEnergyPoints() << std::endl;
-    std::cout << C.getName() << " has " << C.getEnergyPoints() << std::endl;
-    std::cout << "----------" << std::endl;
-    std::cout << "Hit points left" << std::endl;
-    std::cout << A.getName() << " has " << A.getHitPoints() << std::endl;
-    std::cout << B.getName() << " has " << B.getHitPoints() << std::endl;
-    std::cout << C.getName() << " has " << C.getHitPoints() << std::endl;
-    std::cout << "----------" << std::endl;
-}
-
-int main(void) {
-    ClapTrap A("A");
-    std::cout << "----------" << std::endl;
-    ScavTrap B("B");
+// Test FragTrap's special method and attribute setup
+int main() {
+    // Create a FragTrap instance
+    std::cout << "Creating FragTrap C...\n";
     FragTrap C("C");
 
-    showInfo(A, B, C);
+    // Check initial attribute values
+    std::cout << "\nChecking FragTrap initial attributes:\n";
+    std::cout << "Name: " << C.getName() << std::endl;
+    std::cout << "Hit Points: " << C.getHitPoints() << std::endl;
+    std::cout << "Energy Points: " << C.getEnergyPoints() << std::endl;
+    std::cout << "Attack Damage: " << C.getAttackDamage() << std::endl;
 
-    A.setAttackDamage(5);
+    // Perform an attack and display result
+    std::cout << "\nFragTrap attack test:\n";
+    C.attack("Enemy");
 
-    // B attacks C (ScavTrap -> FragTrap)
-    for (int i = 0; i < 6; i++) {
-        std::cout << "Attack #" << i + 1 << std::endl;
-        attack(B, C);
-    }
-
-    std::cout << "Last attack" << std::endl;
-    C.attack(A.getName());
-    A.takeDamage(C.getAttackDamage());
-
-    std::cout << std::endl;
+    // Perform a high five
+    std::cout << "\nFragTrap high five test:\n";
     C.highFivesGuys();
 
-    showInfo(A, B, C);
+    // Repair FragTrap
+    std::cout << "\nFragTrap repair test:\n";
+    C.beRepaired(20);
+
+    // Damage FragTrap
+    std::cout << "\nFragTrap take damage test:\n";
+    C.takeDamage(50);
+
+    // Check final state after operations
+    std::cout << "\nFinal state of FragTrap C:\n";
+    std::cout << "Hit Points: " << C.getHitPoints() << std::endl;
+    std::cout << "Energy Points: " << C.getEnergyPoints() << std::endl;
+    std::cout << "Attack Damage: " << C.getAttackDamage() << std::endl;
+
+    std::cout << "\nExiting test...\n";
+    return 0;
 }
