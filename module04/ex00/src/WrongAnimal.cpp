@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:19:20 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/29 15:22:28 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/01 11:08:30 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ WrongAnimal::WrongAnimal(void) : type("WrongAnimal") {
 // copy constructor
 WrongAnimal::WrongAnimal(const WrongAnimal& src) : type(src.type) {
     printColoredMessage("WrongAnimal copy constructor called", "\033[1;35m");
-    *this = src;
 }
 
 // destructor

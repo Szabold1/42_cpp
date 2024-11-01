@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:57:36 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/29 15:10:32 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/01 11:07:51 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ Dog::Dog(void) : Animal() {
 }
 
 // copy constructor
-Dog::Dog(const Dog& src) {
+Dog::Dog(const Dog& src) : Animal(src) {
     printColoredMessage("Dog copy constructor called", "\033[1;34m");
-    *this = src;
 }
 
 // destructor
@@ -36,7 +35,7 @@ Dog::~Dog(void) {
 Dog& Dog::operator=(const Dog& rhs) {
     printColoredMessage("Dog copy assignment operator called", "\033[1;34m");
     if (this != &rhs) {
-        this->type = rhs.type;
+        Animal::operator=(rhs);
     }
     return (*this);
 }

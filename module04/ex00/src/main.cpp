@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:05:45 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/30 10:52:47 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/01 11:11:33 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main() {
     const WrongAnimal* wrongC = new WrongCat();
 
     std::cout << "Type of wrongA (WrongAnimal): " << wrongA->getType() << std::endl;
-    std::cout << "Type of wrongC (WrongC): " << wrongC->getType() << std::endl;
+    std::cout << "Type of wrongC (WrongCat): " << wrongC->getType() << std::endl;
     wrongA->makeSound();
     wrongC->makeSound();
 

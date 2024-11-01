@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 09:11:11 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/29 15:03:58 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/01 11:04:48 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ Animal::Animal(void) : type("Animal") {
 // copy constructor
 Animal::Animal(const Animal& src) : type(src.type) {
     printColoredMessage("Animal copy constructor called", "\033[1;32m");
-    *this = src;
 }
 
 // destructor

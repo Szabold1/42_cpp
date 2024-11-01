@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:19:22 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/29 15:40:53 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/01 11:09:54 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ WrongCat::WrongCat(void) : WrongAnimal() {
 }
 
 // copy constructor
-WrongCat::WrongCat(const WrongCat& src) {
+WrongCat::WrongCat(const WrongCat& src) : WrongAnimal(src) {
     printColoredMessage("WrongCat copy constructor called", "\033[1;36m");
-    *this = src;
 }
 
 // destructor
@@ -36,7 +35,7 @@ WrongCat::~WrongCat(void) {
 WrongCat& WrongCat::operator=(const WrongCat& rhs) {
     printColoredMessage("WrongCat copy assignment operator called", "\033[1;36m");
     if (this != &rhs) {
-        this->type = rhs.type;
+        WrongAnimal::operator=(rhs);
     }
     return (*this);
 }

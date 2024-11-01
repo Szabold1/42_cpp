@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:57:33 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/29 15:10:25 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/01 11:07:00 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ Cat::Cat(void) : Animal() {
 }
 
 // copy constructor
-Cat::Cat(const Cat& src) {
+Cat::Cat(const Cat& src) : Animal(src) {
     printColoredMessage("Cat copy constructor called", "\033[1;33m");
-    *this = src;
 }
 
 // destructor
@@ -36,7 +35,7 @@ Cat::~Cat(void) {
 Cat& Cat::operator=(const Cat& rhs) {
     printColoredMessage("Cat copy assignment operator called", "\033[1;33m");
     if (this != &rhs) {
-        this->type = rhs.type;
+        Animal::operator=(rhs);
     }
     return (*this);
 }
