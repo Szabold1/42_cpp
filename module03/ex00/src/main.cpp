@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:47:38 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/26 13:14:36 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/05 13:50:28 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ int main() {
 
     // Test repair
     std::cout << "--- ClapTwo Repairs Itself ---\n";
-    clap2.beRepaired(20);
+    clap2.beRepaired(25);
 
     std::cout << "\n--- After Repair Status ---\n";
     std::cout << "ClapTwo HP: " << clap2.getHitPoints() << ", Energy: " << clap2.getEnergyPoints() << "\n\n";
 
-    // Test out of energy scenario
+    // Test energy exhaustion
     std::cout << "--- Exhausting ClapOne's Energy ---\n";
     while (clap1.getEnergyPoints() > 0) {
         clap1.attack("ClapTwo");

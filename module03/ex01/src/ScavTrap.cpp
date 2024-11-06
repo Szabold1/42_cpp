@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:07:34 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/26 12:50:43 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/06 09:46:23 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* -------------- Constructors, copy assignment operator overload, destructor */
 /* -------------------------------------------------------------------------- */
 
-// default constructor
+// constructor with name
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     printColoredMessage("ScavTrap default constructor called", "\033[33;85m");
     setHitPoints(100);
@@ -65,6 +65,5 @@ void ScavTrap::attack(const std::string& target) {
 }
 
 void ScavTrap::guardGate(void) {
-    const std::string message = "ScavTrap " + getName() + " is now in Gate keeper mode.";
-    printColoredMessage(message, "\033[33;85m");
+    printColoredMessage("ScavTrap " + getName() + " is now in Gate keeper mode.", "\033[33;85m");
 }

@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:53:33 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/28 20:46:40 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/06 09:37:45 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,7 @@
 /* -------------- Constructors, copy assignment operator overload, destructor */
 /* -------------------------------------------------------------------------- */
 
-FragTrap::FragTrap(void) : ClapTrap() {
-    printColoredMessage("FragTrap default constructor called", "\033[36;85m");
-    setHitPoints(100);
-    setEnergyPoints(100);
-    setAttackDamage(30);
-}
-
-// default constructor
+// constructor with name
 FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
     printColoredMessage("FragTrap default constructor called", "\033[36;85m");
     setHitPoints(100);

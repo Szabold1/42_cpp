@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:47:38 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/29 08:36:55 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/06 09:35:36 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main() {
     std::cout << "Hit Points: " << diamond.getHitPoints() << std::endl;
     std::cout << "Energy Points: " << diamond.getEnergyPoints() << std::endl;
     std::cout << "Attack Damage: " << diamond.getAttackDamage() << std::endl;
-
+    
     // Attack a target
     std::cout << "\nDiamondTrap attacking:\n";
     diamond.attack("Enemy");

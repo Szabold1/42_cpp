@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:20:49 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/29 08:25:34 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/06 09:01:49 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ protected:
     int energyPoints;
     int attackDamage;
 
-    // ClapTrap(void); // private default constructor so an instance can't be created without name
+    ClapTrap(void); // private default constructor so an instance can't be created without name
     
 public:
-    ClapTrap(void);
     ClapTrap(const std::string& name);
 
     ClapTrap(const ClapTrap& src); // copy constructor

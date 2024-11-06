@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 20:28:34 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/29 08:29:41 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/06 09:37:26 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,18 @@
 /* -------------- Constructors, copy assignment operator overload, destructor */
 /* -------------------------------------------------------------------------- */
 
-// default constructor
-DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name") {
+// constructor with name
+DiamondTrap::DiamondTrap(const std::string& name)
+: ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name), name(name) {
     printColoredMessage("DiamondTrap default constructor called", "\033[34;85m");
-    this->name = name;
-    this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDamage = FragTrap::attackDamage;
-    // setHitPoints(FragTrap::getHitPoints());
-    // setEnergyPoints(ScavTrap::getEnergyPoints());
-    // setAttackDamage(FragTrap::getAttackDamage());
+    ClapTrap::setHitPoints(FragTrap::hitPoints); // 100
+    ClapTrap::setEnergyPoints(ScavTrap::energyPoints); // 50
+    ClapTrap::setAttackDamage(FragTrap::attackDamage); // 30
 }
 
 // copy constructor
-DiamondTrap::DiamondTrap(const DiamondTrap& src) : ClapTrap(src),
-                                                   FragTrap(src), ScavTrap(src),
-                                                   name(src.name) {
+DiamondTrap::DiamondTrap(const DiamondTrap& src)
+: ClapTrap(src),FragTrap(src), ScavTrap(src), name(src.name) {
     printColoredMessage("DiamondTrap copy constructor called", "\033[34;85m");
     *this = src;
 }

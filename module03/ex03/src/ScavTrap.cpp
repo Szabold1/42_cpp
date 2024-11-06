@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:07:34 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/28 20:46:48 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/06 09:38:03 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,14 @@
 /* -------------- Constructors, copy assignment operator overload, destructor */
 /* -------------------------------------------------------------------------- */
 
-ScavTrap::ScavTrap(void) : ClapTrap() {
-    printColoredMessage("ScavTrap default constructor called", "\033[33;85m");
-    setHitPoints(100);
-    setEnergyPoints(50);
-    setAttackDamage(20);
-}
-
-// default constructor
+// constructor with name
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     printColoredMessage("ScavTrap default constructor called", "\033[33;85m");
     setHitPoints(100);
     setEnergyPoints(50);
-    setAttackDamage(20);
+    if (getAttackDamage() == 0) {
+        setAttackDamage(20);
+    }
 }
 
 // copy constructor

@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:47:38 by bszabo            #+#    #+#             */
-/*   Updated: 2024/10/28 14:55:48 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/06 09:49:02 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ int main() {
     ClapTrap clap("clap");
     ScavTrap scav("scav");
 
-    std::cout << "\n--- Testing Constructor and Destruction Chain ---\n";
-    {
-        ScavTrap tempScav("TemporaryScavy");
-        tempScav.attack("Test Target");
-    } // This will show the destruction chain when tempScav goes out of scope
+    // Check initial attribute values
+    std::cout << "\n--- Checking ScavTrap initial attributes ---\n";
+    std::cout << "Name: " << scav.getName() << std::endl;
+    std::cout << "Hit Points: " << scav.getHitPoints() << std::endl;
+    std::cout << "Energy Points: " << scav.getEnergyPoints() << std::endl;
+    std::cout << "Attack Damage: " << scav.getAttackDamage() << std::endl;
 
     std::cout << "\n--- Testing ScavTrap Inherited and Overridden Functions ---\n";
     
