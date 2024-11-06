@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:26:42 by bszabo            #+#    #+#             */
-/*   Updated: 2024/09/06 13:40:17 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/05 13:05:27 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int main (void) {
     Fixed       a;
+    std::cout << std::endl;
     Fixed const b(10);
+    std::cout << std::endl;
     Fixed const c(42.42f);
+    std::cout << std::endl;
     Fixed const d(b);
-    std::cout << "----------" << std::endl;
+    std::cout << std::endl;
 
     a = Fixed(1234.4321f);
 

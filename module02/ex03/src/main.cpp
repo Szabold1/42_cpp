@@ -6,20 +6,20 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 15:26:42 by bszabo            #+#    #+#             */
-/*   Updated: 2024/09/08 12:15:10 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/05 13:19:59 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
 int main (void) {
-    Point a; // 0, 0
+    Point a;
     Point b(5.0f, 5.0f);
     Point c(-5.0f, 5.0f);
 
-    Point p1(1.0f, 2.0f);
-    Point p2(2.0f, 2.0f);
-    Point p3(3.0f, 2.0f);
+    Point p1(0.0f, 2.0f);
+    Point p2(20.0f, 20.0f);
+    Point p3(c);
 
     std::cout << "a: " << a.getX() << ", " << a.getY() << std::endl;
     std::cout << "b: " << b.getX() << ", " << b.getY() << std::endl;
