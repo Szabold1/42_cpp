@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:05:45 by bszabo            #+#    #+#             */
-/*   Updated: 2024/11/01 16:10:48 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/08 16:45:59 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 int main() {
     const int NB_ANIMALS = 4;
 
+    // AAnimal a; // Error: cannot instantiate abstract class
+
     std::cout << "\n---------- Test #1 ---------" << std::endl;
     AAnimal* animals[10];
 
@@ -28,9 +30,8 @@ int main() {
         } else {
             animals[i] = new Cat();
         }
+        std::cout << std::endl;
     }
-
-    std::cout << std::endl;
 
     for (int i = 0; i < NB_ANIMALS; i++) {
         animals[i]->makeSound();
@@ -40,11 +41,11 @@ int main() {
 
     for (int i = 0; i < NB_ANIMALS; i++) {
         delete animals[i];
+        std::cout << std::endl;
     }
 
     std::cout << "\n---------- Test #2 ---------" << std::endl;
     Dog d1;
-    d1.setIdea(0, "First idea");
     std::cout << std::endl;
 
     Dog d2;
@@ -55,6 +56,7 @@ int main() {
     std::cout << std::endl;
 
     // Change ideas in d1 to test if d2 and d3 are unaffected
+    std::cout << "After changing idea in d1:" << std::endl;
     d1.setIdea(0, "Some new idea");
 
     // Output to verify deep copy
