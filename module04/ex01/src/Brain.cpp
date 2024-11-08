@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 13:59:49 by bszabo            #+#    #+#             */
-/*   Updated: 2024/11/01 12:37:46 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/08 16:37:54 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 Brain::Brain() {
     printColoredMessage("Brain constructor called", "\033[1;35m");
     for (int i = 0; i < 100; i++) {
-        this->ideas[i] = "";
+        this->ideas[i] = "default idea";
     }
 }
 

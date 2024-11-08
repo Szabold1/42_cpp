@@ -6,7 +6,7 @@
 /*   By: bszabo <bszabo@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:05:45 by bszabo            #+#    #+#             */
-/*   Updated: 2024/11/01 12:58:34 by bszabo           ###   ########.fr       */
+/*   Updated: 2024/11/08 16:37:27 by bszabo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ int main() {
         } else {
             animals[i] = new Cat();
         }
+        std::cout << std::endl;
     }
-
-    std::cout << std::endl;
 
     for (int i = 0; i < NB_ANIMALS; i++) {
         animals[i]->makeSound();
@@ -40,11 +39,11 @@ int main() {
 
     for (int i = 0; i < NB_ANIMALS; i++) {
         delete animals[i];
+        std::cout << std::endl;
     }
 
     std::cout << "\n---------- Test #2 ---------" << std::endl;
     Dog d1;
-    d1.setIdea(0, "First idea");
     std::cout << std::endl;
 
     Dog d2;
@@ -55,6 +54,7 @@ int main() {
     std::cout << std::endl;
 
     // Change ideas in d1 to test if d2 and d3 are unaffected
+    std::cout << "After changing idea in d1:" << std::endl;
     d1.setIdea(0, "Some new idea");
 
     // Output to verify deep copy
